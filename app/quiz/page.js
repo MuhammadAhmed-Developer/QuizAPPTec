@@ -1,9 +1,9 @@
-import GetData from "@/components/GetData";
+import GetData from "@/components/getData";
 
 export default function Quiz() {
   return (
     <>
-   <GetData/>
+     <GetData/>
     </>
   )
 }
