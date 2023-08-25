@@ -23,3 +23,7 @@ export async function GET(){
   await Questions.findByIdAndDelete(id)
   return NextResponse.json({message:"Question Deleted"}, {status:200})
  }
+
+
+
+ 

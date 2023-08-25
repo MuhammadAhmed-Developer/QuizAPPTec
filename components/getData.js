@@ -140,11 +140,12 @@ export default function GetData() {
     const calculateResult = () => {
         alert(`Your Score is ${score} Out of ${questions.length}`);
         // Optionally, you can reload the page after displaying the result.
-        // window.location.reload();
+        window.location.reload();
     };
 
     return (
         <>
+        
             {questions.map((q) => (
                 <div key={q._id} className="mt-16 w-11/12 mx-auto p-8">
                     <div className="bg-gray-100 p-11 rounded-lg shadow-xl">
@@ -189,8 +190,11 @@ export default function GetData() {
                     </div>
                 </div>
             ))}
+
+            <div className="text-center">
             <button className="my-10 bg-blue-500 py-2 px-3 shadow rounded-md text-white" onClick={calculateResult}>Submit</button>
-        </>
+            </div>
+            </>
     );
 }
 
