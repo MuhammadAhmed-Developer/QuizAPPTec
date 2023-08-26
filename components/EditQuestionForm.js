@@ -4,7 +4,7 @@ import { useState } from "react"
 import {  useRouter } from "next/navigation"
 
 
-export default function EditQuestion({id, question, option1, option2, option3, correctOption}) {
+export default function EditQuestionForm({id, question, option1, option2, option3, correctOption}) {
 
 
     const router = useRouter()
@@ -21,12 +21,12 @@ export default function EditQuestion({id, question, option1, option2, option3, c
         const res = await fetch(`http://localhost:3000/api/ques/${id}`,{
             method:"PUT",
             headers:{
-                "Content-Type": "application/json"
+                "Content-type": "application/json",
             },
             body:JSON.stringify({newQuestion, newOption1, newOption2, newOption3, newCorrectOption})
         })
 
-        if(res.ok){
+        if(!res.ok){
          throw new Error('Failed To Update')
         }
          router.push('/addquestion')
@@ -60,7 +60,6 @@ export default function EditQuestion({id, question, option1, option2, option3, c
             <label htmlFor="option3" className="block font-semibold mb-2">Option 3:</label>
             <input value={newOption3}  onChange={(e)=>setNewOption3(e.target.value)} type="text" id="option3" name="option3" className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" />
           </div>
-
           <div className="mb-4">
             <label htmlFor="correctOption" className="block font-semibold mb-2">Correct Option:</label>
             <input value={newCorrectOption}  type="text" onChange={(e)=>setnewCorrectOption(e.target.value)} id="correctOption" name="correctOption" className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" />
